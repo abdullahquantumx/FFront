@@ -69,12 +69,20 @@ const Navbar = () => {
                 Order History
               </Link>
             )}
-            <Link to="/login" className="text-white">
-              Login
-            </Link>
-            <Link to="/signUp" className="text-white">
-              Sign Up
-            </Link>
+            {!isLoggedIn ? (
+            <form>
+              <Link to="/login" className="btn btn-primary mx-1 text-white" role="button">
+                Login
+              </Link>
+              <Link to="/signUp" className="btn btn-primary text-white" role="button">
+                Sign Up
+              </Link>
+            </form>
+          ) : (
+            <button className="btn btn-primary text-white" onClick={handleLogout}>
+              Log Out
+            </button>
+          )}
           </Carousel>
         ) : (
           <div className="flex items-center space-x-4">
